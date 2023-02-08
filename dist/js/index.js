@@ -146,7 +146,7 @@ angular.module('myApp', [])
       if ($scope.input.BestSportsCollege != "")
         counter++;
 
-      if (counter <= 5) {
+      if (counter <= 4) {
         $scope.errorBest = "Please select at least 5 categories";
         isvalid = false;
       }
