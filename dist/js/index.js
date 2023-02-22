@@ -21,6 +21,7 @@ angular.module('myApp', [])
       BestPlacementCell: "",
       BestECell: "",
       BestSportsCollege: "",
+      BestCollegeinCocurriculars: "",
       BestEmergingCollege: "",
       BestInfrastructure: "",
       BestEcoFriendlyCollege: "",
@@ -137,6 +138,8 @@ angular.module('myApp', [])
         counter++;
       if ($scope.input.BestInfrastructure != "")
         counter++;
+        if ($scope.input.BestCollegeinCocurriculars != "")
+        counter++;
       if ($scope.input.BestParticipationInEvents != "")
         counter++;
       if ($scope.input.BestPlacementCell != "")
@@ -147,7 +150,7 @@ angular.module('myApp', [])
         counter++;
 
       if (counter <= 4) {
-        $scope.errorBest = "Please select at least 5 categories";
+        $scope.errorBest = "Please select at least 3 categories";
         isvalid = false;
       }
 
