@@ -38,7 +38,7 @@ angular.module('myApp', [])
 
       if (isValidate1()) {
         localStorage.setItem("session", JSON.stringify($scope.input));
-        $http.post("#/ValidateUser", JSON.stringify($scope.input))
+        $http.post("https://apiprost.stumagz.com/api/Prost/ValidateUser", JSON.stringify($scope.input))
           .then(function (response) {
             if (response.data.intStatus == 1)
               $scope.input.page = 2;
@@ -111,7 +111,7 @@ angular.module('myApp', [])
 
     $scope.onSubmitVote = function () {
       if (isValidate2()) {
-        $http.post("#/SendSMS", JSON.stringify({
+        $http.post("https://apiprost.stumagz.com/api/Prost/SendSMS", JSON.stringify({
           "user": {
           }, "OTP": "" + OTP,
           "Phone": "91" + $scope.input.Phone
@@ -161,7 +161,7 @@ angular.module('myApp', [])
     $scope.onResendOTP = function () {
       $scope.isResendEnable = false; 
       $timeout(() => { $scope.isResendEnable = true; }, 30000);
-      $http.post("#/SendSMS", JSON.stringify({
+      $http.post("https://apiprost.stumagz.com/api/Prost/SendSMS", JSON.stringify({
         "user": {
         }, "OTP": "" + OTP,
         "Phone": "91" + $scope.input.Phone
@@ -185,7 +185,7 @@ angular.module('myApp', [])
         $scope.errorOTP = "";
       }
       if ($scope.input.OTP == OTP) {
-        $http.post("#/SaveUser", JSON.stringify($scope.input))
+        $http.post("https://apiprost.stumagz.com/api/Prost/SaveUser", JSON.stringify($scope.input))
           .then(function (response) {
             if (response.data.intStatus == 1) {
               $scope.input.page = 4;
